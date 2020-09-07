@@ -1,7 +1,7 @@
 package home_work_2;
 
 public class Task_8 {
-    private static final int[] array = {1,-10,5,6,45,23,-45,-34,0,32,56,-1,2,-2};
+    private static final int[] array = {1, -10, 5, 6, 45, 23, -45, -34, 0, 32, 56, -1, 2, -2};
 
     public static void main(String[] args) {
         int max = array[0];
@@ -11,7 +11,7 @@ public class Task_8 {
         int sumNegative = 0;
         int sumEvenNegative = 0;
 
-        for (int i: array) {
+        for (int i : array) {
             max = Math.max(i, max);
             sumPositive += Math.max(i, 0);
             sumEvenNegative += ((i % 2 == 0) && (i < 0)) ? i : 0;

@@ -7,7 +7,7 @@ public class Task_1 {
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNextInt()) {
             String string = String.valueOf(scanner.nextInt());
-            System.out.println("Последняя цифра: " + string.charAt(string.length()-1));
+            System.out.println("Последняя цифра: " + string.charAt(string.length() - 1));
         } else {
             System.out.println(Common.INVALID_NUMBER_MESSAGE);
         }

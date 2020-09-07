@@ -15,16 +15,18 @@ public class Task_2 {
     private static boolean checkInput(String input) {
         int i;
         try {
-            i = Integer.parseInt(input);
+            i = Math.abs(Integer.parseInt(input));
         } catch (NumberFormatException nfe) {
             return false;
         }
-        return (float) i / 999 <= 1;
+        return i >= 100 && i <= 999;
     }
 
     private static int sumDigits(String input) {
         int sum = 0;
-        for (int i = 0; i < input.length(); i++) {
+        boolean isNumberPositive = Integer.parseInt(input) >= 0;
+        // для отрицательных чисел суммируем начиная со второго символа
+        for (int i = isNumberPositive ? 0 : 1; i < input.length(); i++) {
             sum += Integer.parseInt(String.valueOf(input.charAt(i)));
         }
         return sum;

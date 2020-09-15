@@ -5,9 +5,12 @@ public class Main {
         Animal[] animals = {new Cat("мыши", "дом", 1.5f)
                 , new Dog("всё подряд", "будка", 2.2f)
                 , new Horse("овёс", "конюшня", 0.5f)};
+
+        Veterinarian veterinarian = new Veterinarian();
+
         for (Animal animal :
                 animals) {
-            Veterinarian.treatAnimal(animal);
+            veterinarian.treatAnimal(animal);
         }
     }
 }

@@ -31,7 +31,7 @@ public class Phone {
         System.out.printf("Звонит %s%n", callerName);
     }
 
-    public static void recieveCall(String callerName, long number) {
+    public void recieveCall(String callerName, long number) {
         System.out.printf("Звонит %s, номер %d%n", callerName, number);
     }
 
@@ -39,10 +39,14 @@ public class Phone {
         return number;
     }
 
-    public static void sendMessage(long[] numbers) {
+    public void sendMessage(long[] numbers) {
         for (long number :
                 numbers) {
             System.out.println(number);
         }
+    }
+
+    public String getModel() {
+        return model;
     }
 }

@@ -1,0 +1,20 @@
+package task_2;
+
+public abstract class Fruit {
+    protected float weight;
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public Fruit(float weight) {
+        this.weight = weight;
+    }
+
+    public Fruit() {
+    }
+}

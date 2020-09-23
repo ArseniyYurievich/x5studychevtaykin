@@ -5,11 +5,11 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Введите команду:");
-        Manager manager = new Manager();
+        ManagerDb managerDb = new ManagerDb();
         Scanner scanner = new Scanner(System.in);
         String command = scanner.nextLine();
         while (!command.equalsIgnoreCase(EXIT_COMMAND)) {
-            manager.operate(command);
+            managerDb.operate(command);
             command = scanner.nextLine();
         }
     }

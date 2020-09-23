@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Manager implements AccountService {
+public class ManagerFile implements AccountService {
     private static final File fileStorage = new File(".\\accounts.txt");
     private final Map<Integer, Account> accounts = new HashMap<>();
     private final String lineDelimiter = ";";

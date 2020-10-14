@@ -8,7 +8,7 @@ import task_2.videocard.VideoCard;
 public class ComputerForOfficeFacade implements ComputerFacade {
     @Override
     public Computer getComputer() {
-        Computer computer = new Computer(CPU.Manufacturer.AMD, RAM.RamType.DDR, VideoCard.Manufacturer.Nvidia, DiskDrive.DiskDriveType.HDD);
+        Computer computer = new Computer(CPU.Manufacturer.AMD, RAM.RamType.DDR, VideoCard.Manufacturer.NVIDIA, DiskDrive.DiskDriveType.HDD);
 
         computer.getCpu().setCacheSize(100);
         computer.getCpu().setClockSpeed(100);

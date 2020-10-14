@@ -1,28 +1,10 @@
 package task_1;
 
-import java.util.Scanner;
-
 public class Calculator {
     private final Logger logger;
 
-    {
-        System.out.println("Выберите метод логирования (Console, File, DB):");
-        logger = getLogger(new Scanner(System.in).next());
-    }
-
-    private Logger getLogger(String type) {
-        switch (type) {
-            case "Console":
-                return new ConsoleLogger();
-            case "File":
-                return new FileLogger();
-            case "DB":
-                return new DbLogger();
-            default: {
-                System.out.println("Введён неизвестный метод. Будет выбран метод по умолчанию - Console");
-                return new ConsoleLogger();
-            }
-        }
+    public Calculator(Logger logger) {
+        this.logger = logger;
     }
 
     public double add(double first, double second) {

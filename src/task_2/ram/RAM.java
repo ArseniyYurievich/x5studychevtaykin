@@ -1,12 +1,18 @@
 package task_2.ram;
 
-public class RAM {
-    public enum RamType {DDR, DDR2, DDR3}
+import task_2.Component;
+
+public class RAM extends Component {
+    public enum RamType {UNKNOWN, DDR, DDR2, DDR3}
 
     protected RamType ramType;
     private String manufacturer;
     private int volume;
     private int frequency;
+
+    public RAM(RamType ramType) {
+        this.ramType = ramType;
+    }
 
     @Override
     public String toString() {

@@ -1,13 +1,19 @@
 package task_2.cpu;
 
-public class CPU {
-    public enum Manufacturer {unknown, Intel, AMD}
+import task_2.Component;
+
+public class CPU extends Component {
+    public enum Manufacturer {UNKNOWN, INTEL, AMD}
 
     protected Manufacturer manufacturer;
     private int clockSpeed;
     private int coreQuantity;
     private int cacheSize;
     private String name;
+
+    public CPU(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+    }
 
     @Override
     public String toString() {

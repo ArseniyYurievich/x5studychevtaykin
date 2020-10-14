@@ -1,14 +1,19 @@
 package task_2.videocard;
 
+import task_2.Component;
 import task_2.ram.RAM;
 
-public class VideoCard {
-    public enum Manufacturer {unknown, Nvidia, AMD}
+public class VideoCard extends Component {
+    public enum Manufacturer {UNKNOWN, NVIDIA, AMD}
 
     protected Manufacturer manufacturer;
     private RAM.RamType ramType;
     private int ramVolume;
     private boolean isActiveCooling;
+
+    public VideoCard(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+    }
 
     @Override
     public String toString() {

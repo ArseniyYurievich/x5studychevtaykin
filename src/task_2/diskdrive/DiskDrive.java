@@ -1,12 +1,18 @@
 package task_2.diskdrive;
 
-public class DiskDrive {
-    public enum DiskDriveType {unknown, HDD, SSD}
+import task_2.Component;
+
+public class DiskDrive extends Component {
+    public enum DiskDriveType {UNKNOWN, HDD, SSD}
 
     protected DiskDriveType diskDriveType;
     private String manufacturer;
     private int memoryVolume;
     private String formFactor;
+
+    public DiskDrive(DiskDriveType diskDriveType) {
+        this.diskDriveType = diskDriveType;
+    }
 
     @Override
     public String toString() {

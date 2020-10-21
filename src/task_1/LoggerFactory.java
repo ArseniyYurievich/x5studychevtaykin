@@ -1,7 +1,8 @@
 package task_1;
 
 public class LoggerFactory {
-    private LoggerFactory(){}
+    private LoggerFactory() {
+    }
 
     public static Logger getLogger(String type) {
         switch (type) {

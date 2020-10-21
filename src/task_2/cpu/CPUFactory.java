@@ -1,18 +1,20 @@
 package task_2.cpu;
 
 import task_2.Component;
+import task_2.ComponentFactory;
 
-public class CPUFactory {
-    private CPUFactory() {
-    }
+import static task_2.cpu.CPU.Manufacturer.*;
 
-    public static Component getCPU(CPU.Manufacturer manufacturer) {
+public class CPUFactory implements ComponentFactory {
+    @Override
+    public Component createComponent(String manufacturer) {
         switch (manufacturer) {
-            case AMD:
-            case INTEL:
-                return new CPU(manufacturer);
+            case "AMD":
+                return new CPU(AMD);
+            case "INTEL":
+                return new CPU(INTEL);
             default:
-                return new CPU(CPU.Manufacturer.UNKNOWN);
+                return new CPU(UNKNOWN);
         }
     }
 }

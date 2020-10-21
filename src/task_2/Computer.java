@@ -16,12 +16,11 @@ public class Computer {
     private Component diskDrive;
     private Component monitor;
 
-    public Computer(CPU.Manufacturer cpuManufacturer, RAM.RamType ramType, VideoCard.Manufacturer videoCardManufacturer,
-                    DiskDrive.DiskDriveType diskDriveType) {
-        this.cpu = CPUFactory.getCPU(cpuManufacturer);
-        this.ram = RAMFactory.getRAM(ramType);
-        this.videoCard = VideoCardFactory.getVideoCard(videoCardManufacturer);
-        this.diskDrive = DiskDriveFactory.getDiskDrive(diskDriveType);
+    public Computer(String cpuManufacturer, String ramType, String videoCardManufacturer, String diskDriveType) {
+        this.cpu = new CPUFactory().createComponent(cpuManufacturer);
+        this.ram = new RAMFactory().createComponent(ramType);
+        this.videoCard = new VideoCardFactory().createComponent(videoCardManufacturer);
+        this.diskDrive = new DiskDriveFactory().createComponent(diskDriveType);
         this.monitor = new Monitor();
     }
 

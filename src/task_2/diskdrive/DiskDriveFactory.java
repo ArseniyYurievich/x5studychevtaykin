@@ -1,18 +1,21 @@
 package task_2.diskdrive;
 
 import task_2.Component;
+import task_2.ComponentFactory;
 
-public class DiskDriveFactory {
-    private DiskDriveFactory() {
-    }
+import static task_2.diskdrive.DiskDrive.DiskDriveType.*;
 
-    public static Component getDiskDrive(DiskDrive.DiskDriveType diskDriveType) {
+public class DiskDriveFactory implements ComponentFactory {
+
+    @Override
+    public Component createComponent(String diskDriveType) {
         switch (diskDriveType) {
-            case HDD:
-            case SSD:
-                return new DiskDrive(diskDriveType);
+            case "HDD":
+                return new DiskDrive(HDD);
+            case "SSD":
+                return new DiskDrive(SSD);
             default:
-                return new DiskDrive(DiskDrive.DiskDriveType.UNKNOWN);
+                return new DiskDrive(UNKNOWN);
         }
     }
 }

@@ -1,18 +1,20 @@
 package task_2.videocard;
 
 import task_2.Component;
+import task_2.ComponentFactory;
 
-public class VideoCardFactory {
-    private VideoCardFactory() {
-    }
+import static task_2.videocard.VideoCard.Manufacturer.*;
 
-    public static Component getVideoCard(VideoCard.Manufacturer manufacturer) {
+public class VideoCardFactory implements ComponentFactory {
+    @Override
+    public Component createComponent(String manufacturer) {
         switch (manufacturer) {
-            case AMD:
-            case NVIDIA:
-                return new VideoCard(manufacturer);
+            case "AMD":
+                return new VideoCard(AMD);
+            case "NVIDIA":
+                return new VideoCard(NVIDIA);
             default:
-                return new VideoCard(VideoCard.Manufacturer.UNKNOWN);
+                return new VideoCard(UNKNOWN);
         }
     }
 }

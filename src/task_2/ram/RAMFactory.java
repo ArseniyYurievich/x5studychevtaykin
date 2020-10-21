@@ -1,19 +1,22 @@
 package task_2.ram;
 
 import task_2.Component;
+import task_2.ComponentFactory;
 
-public class RAMFactory {
-    private RAMFactory() {
-    }
+import static task_2.ram.RAM.RamType.*;
 
-    public static Component getRAM(RAM.RamType ramType) {
+public class RAMFactory implements ComponentFactory {
+    @Override
+    public Component createComponent(String ramType) {
         switch (ramType) {
-            case DDR:
-            case DDR2:
-            case DDR3:
-                return new RAM(ramType);
+            case "DDR":
+                return new RAM(DDR);
+            case "DDR2":
+                return new RAM(DDR2);
+            case "DDR3":
+                return new RAM(DDR3);
             default:
-                return new RAM(RAM.RamType.UNKNOWN);
+                return new RAM(UNKNOWN);
         }
     }
 }

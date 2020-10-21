@@ -1,14 +1,11 @@
 package task_2;
 
-import task_2.cpu.CPU;
-import task_2.diskdrive.DiskDrive;
 import task_2.ram.RAM;
-import task_2.videocard.VideoCard;
 
 public class ComputerForOfficeFacade implements ComputerFacade {
     @Override
     public Computer getComputer() {
-        Computer computer = new Computer(CPU.Manufacturer.AMD, RAM.RamType.DDR, VideoCard.Manufacturer.NVIDIA, DiskDrive.DiskDriveType.HDD);
+        Computer computer = new Computer("AMD", "DDR", "NVIDIA", "HDD");
 
         computer.getCpu().setCacheSize(100);
         computer.getCpu().setClockSpeed(100);

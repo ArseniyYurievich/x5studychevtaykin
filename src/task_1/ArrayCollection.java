@@ -36,7 +36,7 @@ public class ArrayCollection<E> {
     public void remove(int index) {
         if (checkIndexBounds(index)) {
             System.arraycopy(array, index + 1, array, index, size - index);
-            array[--size] = null;
+            size--;
         }
     }
 

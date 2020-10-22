@@ -27,16 +27,14 @@ public class LinkedListCollection<E> {
     }
 
     public void add(E value) {
+        Item item = new Item(value, null, null);
         if (size == 0) {
-            first = new Item<>(value, null, null);
-        } else if (size == 1) {
-            Item<E> newItem = new Item<>(value, first, null);
-            first.next = newItem;
-            last = newItem;
+            first = item;
+            last = item;
         } else {
-            Item<E> newItem = new Item<>(value, last, null);
-            last.next = newItem;
-            last = newItem;
+            last.next = item;
+            item.previous = last;
+            last = item;
         }
         size++;
     }
@@ -78,7 +76,8 @@ public class LinkedListCollection<E> {
         Item<E> temp = first;
         for (int i = 0; i < size; i++) {
             if (temp.value.equals(value)) {
-                remove(i);
+                temp.previous.next = temp.next;
+                temp.next.previous = temp.previous;
                 return;
             }
             temp = temp.next;

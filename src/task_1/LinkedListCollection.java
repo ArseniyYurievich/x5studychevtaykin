@@ -39,45 +39,38 @@ public class LinkedListCollection<E> {
         size++;
     }
 
+    private void moveLinksForDeleting(Item<E> item) {
+        if (item.previous == null) {
+            first = item.next;
+        } else {
+            item.previous.next = item.next;
+        }
+
+        if (item.next == null) {
+            last = item.previous;
+        } else {
+            item.next.previous = item.previous;
+        }
+        size--;
+    }
+
     public void remove(int index) {
         if (index < 0 || index >= size) {
             return;
         }
-
-        if (size == 1) {
-            first = null;
-        } else if (index == 0) {
-            first = first.next;
-            first.previous = null;
-        } else if (index == size - 1) {
-            last = last.previous;
-            last.next = null;
-        } else {
-            Item<E> temp = first;
-            // устанавливаем temp на удаляемом элементе
-            for (int i = 0; i < index; i++) {
-                temp = temp.next;
-            }
-            Item<E> previous = temp.previous;
-            Item<E> next = temp.next;
-            previous.next = next;
-            next.previous = previous;
-            if (previous.previous == null) {
-                first = previous;
-            }
-            if (next.next == null) {
-                last = next;
-            }
+        Item<E> temp = first;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
         }
-        size--;
+
+        moveLinksForDeleting(temp);
     }
 
     public void remove(E value) {
         Item<E> temp = first;
         for (int i = 0; i < size; i++) {
             if (temp.value.equals(value)) {
-                temp.previous.next = temp.next;
-                temp.next.previous = temp.previous;
+                moveLinksForDeleting(temp);
                 return;
             }
             temp = temp.next;

@@ -5,16 +5,12 @@ import task_1.LinkedListCollection;
 public class Box<T extends Fruit> {
     private final LinkedListCollection<T> fruits = new LinkedListCollection<>();
 
-    public boolean canInsert(Fruit fruit) {
-        if (fruits.size() == 0) {
-            return true;
-        }
-        return fruit.getClass() == fruits.get(0).getClass();
-    }
-
     public void add(T fruit) {
-        if (canInsert(fruit)) {
+        try {
             fruits.add(fruit);
+        } catch (Exception e) {
+            System.out.println("Ошибка: не удалось добавить фрукт.\n");
+            e.printStackTrace();
         }
     }
 
@@ -59,7 +55,7 @@ public class Box<T extends Fruit> {
     }
 
     public void moveFruits(Box<T> destination) {
-        if (destination.fruits.size() > 0 && !canInsert(destination.get(0))) {
+        if (destination.getClass() != this.getClass()) {
             System.out.println("Ошибка. Допускается объединять только фрукты одинаковых типов");
             return;
         }

@@ -55,10 +55,6 @@ public class Box<T extends Fruit> {
     }
 
     public void moveFruits(Box<T> destination) {
-        if (destination.getClass() != this.getClass()) {
-            System.out.println("Ошибка. Допускается объединять только фрукты одинаковых типов");
-            return;
-        }
         for (int i = 0; i < fruits.size(); i++) {
             destination.fruits.add(this.fruits.get(i));
         }
